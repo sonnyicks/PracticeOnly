@@ -2,11 +2,10 @@
 using namespace std;
 
 void fillUp (int a[], int size);
-int size = 5;
-int array[5];
+int size = 18;
+int array[18];
 int main(){
 	cout << "Enter the size: ";
-	cin >> size;
 	fillUp (array, size);
 	return 0;
 }
