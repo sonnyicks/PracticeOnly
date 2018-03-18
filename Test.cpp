@@ -1,22 +1,12 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-int total = 0;
-double scale (int number);
-int round (double scaled);
+double ans;
 
-int main(){
-	cin >> total;
-	cout << scale (total);
+int main (){
+	cout << "Enter number with decimal: ";
+	cin >> ans;
+	cout << round(ans);
 	return 0;
-}
-
-double scale (int a){
-	double result = 0.0;
-	result = round(a/1000.0);
-	return result;
-}
-
-int round (double a){
-	return a+.5;
 }
