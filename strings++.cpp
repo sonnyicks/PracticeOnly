@@ -15,10 +15,14 @@ int main(){
 	c = a+b;
 	cout << c << d << endl;
 	
-	e = "I want to say " + a + b + d;
 	cout << e << endl << "Now, enter something else: \n";
-	getline (cin, line);
-	cout << line;
+	getline (cin, line, '?'); // will stop at question mark
+	cout << line << "?";
+	cout << endl << "Now enter something else: \n";
+	getline (cin, line) >> e;
+	cout << e; //still stops at space
+	
+	
 	
 	
 	return 0;
