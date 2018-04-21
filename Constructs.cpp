@@ -25,10 +25,38 @@ class Table{
 	}
 };
 
+class SetTable: public Table{
+	public:
+	int plates = 0;
+	int forks = 0;
+	bool food = false;
+	int glasses = 0;
+	void set();
+};
+
+void print_menu();
+char choose;
+//Add functions for the menu
+
 int main(){
 	
-	Table mine;
+	int people = 0;
+	char yesno;
+	
+	SetTable mine;
 	mine.print();
+	cout << "How many people will be attending dinner?: ";
+	cin >> people;
+	mine.plates = people;
+	mine.forks = people*2;
+	mine.glasses = people;
+	
+	mine.set();
+	
+	cout << "Do you want to serve the food?:";
+	cin >> yesno;
+	if ((yesno=='y')||(yesno=='Y')){mine.food=true;}
+	mine.set();
 	
 	return 0;
 }
@@ -61,9 +89,21 @@ void Table::print(){
 		 << "Width of Table: " << width << endl
 		 << "Shape of Table: " << shape << endl;
 }
+void SetTable::set(){
+	cout << endl << "Each guest gets a plate, a glass and 2 forks. \n";
+	cout << "The table is set for " << glasses << " guests:" << endl;
+	cout << "Plates: " << plates << endl
+		 << "Glasses: " << glasses << endl
+		 << "forks: " << forks << endl << endl;
+	if (!food){cout << "The plates are empty." << endl;}
+	else {cout << "The plates are full.  Time to eat!" << endl;}
+}
 
-
-
+void print_menu(){
+	cout << "Change number of Guests (g): " << endl
+		 << "Serve food (f): " << endl
+		 << "Poor drinks (d): " << endl;
+}
 
 
 
