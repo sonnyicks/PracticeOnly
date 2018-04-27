@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 class BankAccount{
@@ -18,6 +19,13 @@ class BankAccount{
 	void set (string a, double dollars){
 		name = a;
 		balance = dollars;
+	}
+	
+	void print(ostream& outs){
+	outs << "Name: " << get_name() << endl
+		 << "Balance: $" << get_balance() << endl
+		 << "Rate: " << get_rate() << endl
+		 << "Years to mature: " << get_years() << endl << endl;
 	}
 	// double set_balance(){
 		// cout << "Starting balance: ";
@@ -48,12 +56,43 @@ class BankAccount{
 };
 
 int main(){
-	BankAccount mine;
+	string fname;
+	char x;
+	int brk = 0;
+
+	BankAccount mine, yours, his, hers;
 	mine.set("Sonny", 10000);
-	cout << "Name: " << mine.get_name() << endl
-		 << "Balance: $" << mine.get_balance() << endl
-		 << "Rate: " << mine.get_rate() << endl
-		 << "Years to mature: " << mine.get_years() << endl;
+	yours.set("Robyn", 50000);
+	his.set ("Graham", 14878);
+	hers.set ("Amanda", 12258);
 	
+	ofstream file;
+	cout << "What is the name of your file?: ";
+	cin >> fname;
+	
+	file.open(fname);
+	
+	mine.print(file);
+	yours.print(file);
+	his.print(file);
+	hers.print(file);
+	
+	file.close();
+	
+	ifstream infile;
+	infile.open(fname);
+	
+	do{
+	infile.get(x);
+	cout << x;
+	if (x=='\n'){
+		brk++;
+		}
+	}while(brk<20);
+	
+	
+	
+
+		
 	return 0;
 }
