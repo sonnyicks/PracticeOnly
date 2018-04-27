@@ -57,6 +57,8 @@ class BankAccount{
 
 int main(){
 	string fname;
+	string cats;
+	string total = "What is a ";
 	char x;
 	int brk = 0;
 
@@ -82,13 +84,15 @@ int main(){
 	ifstream infile;
 	infile.open(fname);
 	
-	do{
-	infile.get(x);
-	cout << x;
-	if (x=='\n'){
-		brk++;
-		}
-	}while(brk<20);
+	do{//try a for statement maybe???
+		infile.get(x);
+		cats+=x;
+		if (x=='\n'){brk++;} 
+	}while (brk<20);
+	
+
+	cout << cats;
+
 	
 	
 	
